@@ -1,0 +1,30 @@
+body {
+  background-color: rgb(182, 58, 108);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+  color: rgb(0, 86, 139);
+}
+
+p {
+  font-size: 40px;
+  color: rgb(233, 152, 12);
+}
+
+button {
+  background-color: rgb(53, 190, 181);
+  border: none;
+  border-radius: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding: 20px;
+  margin-top: 20px;
+}
