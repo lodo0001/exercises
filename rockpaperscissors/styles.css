@@ -141,3 +141,8 @@ button.paper {
 button.scissors {
   background-image: url(button_scissors.png);
 }
+
+.movesleft {
+  display: flex;
+  justify-content: center;
+}
