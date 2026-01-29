@@ -29,36 +29,21 @@ function rockClick() {
   player1.setAttribute("class", "player");
   player2.setAttribute("class", "player");
   userChoice = "rock";
-  player1.classList.add("rock");
-  computerChooses();
-  // vi tilføjer hidden
-  win.classList.add("hidden");
-  lose.classList.add("hidden");
-  draw.classList.add("hidden");
+  handshakeStart();
 }
 function paperClick() {
   // Vi nulstiller hver player
   player1.setAttribute("class", "player");
   player2.setAttribute("class", "player");
   userChoice = "paper";
-  player1.classList.add("paper");
-  computerChooses();
-  // vi tilføjer hidden
-  win.classList.add("hidden");
-  lose.classList.add("hidden");
-  draw.classList.add("hidden");
+  handshakeStart();
 }
 function scissorsClick() {
   // Vi nulstiller hver player
   player1.setAttribute("class", "player");
   player2.setAttribute("class", "player");
   userChoice = "scissors";
-  player1.classList.add("scissors");
-  computerChooses();
-  // vi tilføjer hidden
-  win.classList.add("hidden");
-  lose.classList.add("hidden");
-  draw.classList.add("hidden");
+  handshakeStart();
 }
 
 // Vi koder så computeren kun har 3 muligheder
