@@ -3,7 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Computer_guesses</title>
+    <title>Computer guesses game</title>
+    <script src="computer_guess.js" defer></script>
+    <link rel="stylesheet" href="computer_gusses.css" />
   </head>
-  <body></body>
+  <body>
+    <h1>Let the computer guess your number</h1>
+    <p>
+      Choose a number between 1 to 100 and let the computer guess it. The
+      computer only have 10 attempts!
+    </p>
+
+    <div class="gamefield">
+      <div id="message"></div>
+      <button id="gameStart">Start the game</button>
+      <button id="tooLow">Too low</button>
+      <button id="tooHigh">Too high</button>
+      <button id="rightAnswer">Your answer it right!</button>
+    </div>
+  </body>
 </html>

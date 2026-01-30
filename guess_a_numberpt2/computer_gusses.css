@@ -1,0 +1,45 @@
+.hidden {
+  display: none;
+}
+
+@font-face {
+  font-family: "fun";
+  src: url(../guess_a_numberpt2/Barriecito/Barriecito-Regular.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Baggrund og hele body */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #b63479, #8d5e95);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-family: "fun";
+  font-size: 80px;
+}
+
+p {
+  font-family: "fun";
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+button {
+  font-family: "fun";
+  margin-top: 30px;
+}
