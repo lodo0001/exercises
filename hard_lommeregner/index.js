@@ -22,19 +22,47 @@ function klik(evt) {
   typeOfInput = whatTypeOfInput(btnClicked);
   console.log("typeOfInput:", typeOfInput);
   if (typeOfInput === "num") {
+    if (regneArt === "") {
+      firstNumVal += btnClicked;
+    } else {
+      secondNumVal += btnClicked;
+    }
     // hvis det er et tal, så tjek om det er første eller andet tal der skal gemmes(!) og husk at tallene er strings
     // og det er en fordel her, men ikke nå der skal regnes
   } else if (typeOfInput === "regneart") {
     // hvis det er en regneart, så gem den
+    regneArt = btnClicked;
   } else if (typeOfInput === "ligmed") {
+    const num1 = parseInt(firstNumVal);
+    const num2 = parseInt(secondNumVal);
+    let result;
+    if (regneArt === "+") {
+      result = num1 + num2;
+    } else if (regneArt === "-") {
+      result = num1 - num2;
+    } else if (regneArt === "*") {
+      result = num1 * num2;
+    } else if (regneArt === "/") {
+      result = num1 / num2;
+    }
+    console.log("result", result);
+    updateScreen(result);
     // hvis det er ligmed, så regn regnestykket ud med de gemte værdier
     // ligesom i den simple lommeregner.  Der skal parseInt() på strings til tal
     // skriv resultatet til skærmen med updateScreen()
   } else if (typeOfInput === "CLEAR") {
+    if (btnClicked === "ac") {
+      firstNumVal = "";
+      secondNumVal = "";
+      regneArt = "";
+    }
     // reset alt: lav en reset funktion der nulstiller alle variabler
     // skærmen bliver nulstillet med resetScreen()
     resetScreen();
   }
+  console.log("firstNumval", firstNumVal);
+  console.log("secondNumval", secondNumVal);
+  console.log("regneArt", regneArt);
 }
 
 function whatTypeOfInput(btnClicked) {
@@ -51,7 +79,12 @@ function whatTypeOfInput(btnClicked) {
     btnClicked === "9"
   ) {
     return "num";
-  } else if (btnClicked === "+" || btnClicked === "/" || btnClicked === "*" || btnClicked === "-") {
+  } else if (
+    btnClicked === "+" ||
+    btnClicked === "/" ||
+    btnClicked === "*" ||
+    btnClicked === "-"
+  ) {
     return "regneart";
   } else if (btnClicked === "=") {
     return "ligmed";
