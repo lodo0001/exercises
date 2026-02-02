@@ -1,0 +1,19 @@
+h1,
+label,
+input,
+button {
+  font-family: "Courier New", Courier, monospace;
+  margin: 12px;
+}
+
+.lommeregner {
+  border: 2px solid #333;
+  place-items: center;
+  padding: 90px;
+  background-color: white;
+
+  width: 320px;
+
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
