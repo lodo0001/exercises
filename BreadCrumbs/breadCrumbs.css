@@ -1,0 +1,36 @@
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 6px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* Sætter skråstreg efter hvert li */
+ul li::after {
+  content: "/";
+  margin-left: 10px;
+}
+
+/* Fjerner skråstreg efter sidste li */
+ul li:last-child::after {
+  content: "";
+}
+
+ul li a {
+  color: rgb(32, 32, 167); /* Blå link */
+}
+
+ul li a:hover {
+  text-decoration: underline;
+  color: darkblue;
+}
+
+#knap {
+  margin-top: 20px;
+}
