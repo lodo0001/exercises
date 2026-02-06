@@ -28,7 +28,7 @@ const vehicles = [
   { type: "Løbehjul", passengers: 1, isElectric: true },
 ];
 const tbodyPointer = document.querySelector("tbody");
-showTheseVehicles(vehicles);
+// showTheseVehicles(vehicles);
 
 // function all(vehicles) {
 //   return true;
@@ -47,6 +47,10 @@ const isElectric = vehicles.filter((vehicles) => {
 });
 
 console.log("isElectric", isElectric);
+
+// En anden måde at gøre det.
+const electricVeh = vehicles.filter((veh) => veh.isElectric);
+console.log("isElectric", electricVeh);
 // ______________________________________
 
 // 2.
@@ -66,12 +70,18 @@ console.log("moreThanTwoPassengers", moreThanTwoPassengers);
 
 // 3.
 // Kode til "alle el-drevne fartøjer ejet af Jonas"
-const egetAfJonas = vehicles.filter((vehicles) => {
+const ejetAfJonas = vehicles.filter((vehicles) => {
   return vehicles.ownedBy === "Jonas" && vehicles.isElectric === true;
 });
 
-console.log("egetAfJonas", egetAfJonas);
+console.log("ejetAfJonas", ejetAfJonas);
 // Som du kan se bruges der && til at tilføje flere værdier.
+
+// En anden måde at gøre det.
+const ejetafJonas = vechicles.filter(
+  (veh) => veh.isElectric && veh.ownedBy === "Jonas"
+);
+console.log("EjetAfJonad", ejetAfJonas);
 // ______________________________________
 
 // 4.
@@ -83,18 +93,52 @@ const rugbrødAndMoreThanOnePerson = vehicles.filter((vehicles) => {
 
 console.log("rugbrødAndMoreThanOnePerson", rugbrødAndMoreThanOnePerson);
 // ______________________________________
-// Kode til if statements
 
+// Kode til if statements
 function showTheseVehicles(arr) {
+  tbodyPointer.innerHTML = "";
   arr.forEach((each) => {
+    // console.log("each.stops", each.stops);
+    // let stopsText;
+    // if (each.stops) {
+    //   console.log("DEN ER UNDEFINED");
+    //   stopsText = each.stops;
+    // } else {
+    //   stopsText = "-";
+    // }
+
     tbodyPointer.innerHTML += `<tr>
   <td>${each.type}</td>
   <td>${each.fuel}</td>
   <td>${each.passengers}</td> 
-  <td>${each.stops}</td>
+  <td>${each.stops ? each.stops : "-"}</td>
   <td>${each.ownedBy}</td>
   <td>${each.isElectric}</td>
-  <td>${each.isTandem}</td>
+  <td>${each.isTandem ? "X" : "-"}</td>
 </tr>`;
   });
+
+  // ? og ?? er øvelser
+
+  showTheseVehicles.undefined = "-";
+  console.log(undefined, showTheseVehicles.undefined);
 }
+
+// ______________________________________
+// Opgave 3, "Flyt filtreringerne over på 4 knapper der viser de filtreringer der før var hardcodede + 1 knap til at vise alle (ufiltreret)"
+
+const el_btn = document.querySelector("#filter1");
+const moreThan2_btn = document.querySelector("#filter2");
+const jonas = document.querySelector("#filter3");
+const ryebread = document.querySelector("#filter4");
+const noFilter = document.querySelector("#filter5");
+
+el_btn.addEventListener("click", () => showTheseVehicles(isElectric));
+moreThan2_btn.addEventListener("click", () =>
+  showTheseVehicles(moreThanTwoPassengers)
+);
+jonas.addEventListener("click", () => showTheseVehicles(egetAfJonas));
+ryebread.addEventListener("click", () =>
+  showTheseVehicles(rugbrødAndMoreThanOnePerson)
+);
+noFilter.addEventListener("click", () => showTheseVehicles(vehicles));
