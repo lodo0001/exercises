@@ -1,38 +1,41 @@
 "use strict";
-const texts = {
-  de: {
-    texts: [
-      { text: "Das Bot", location: ".header" },
-      { text: "Das Ro-Bot", location: ".footer" },
-    ],
-  },
-  da: {
-    texts: [
-      { text: "Båden", location: ".header" },
-      { text: "Robotten", location: ".footer" },
-    ],
-  },
-};
 
-let locale = "da";
-texts[locale].texts.forEach((elm) => {
-  document.querySelector(elm.location).textContent = elm.text;
-});
+// Array med "dårlige" og "gode" ord
+const curseWords = [
+  { bad: "var", good: "const" },
+  { bad: "float", good: "grid" },
+  { bad: "marquee", good: "just don't" },
+];
 
-// Js til dropdown
-const dropdown = document.querySelector("#dropdown");
-dropdown.addEventListener("change", changeLanguage);
+// Flag for om knappen er blevet klikket
+let hadTheButtonEverBeenClickedFlag = false;
 
-function changeLanguage() {
-  if (dropdown.value === "de") {
-    let locale = "de";
-    texts[locale].texts.forEach((elm) => {
-      document.querySelector(elm.location).textContent = elm.text;
-    });
+// Hent elementer
+const textElm = document.querySelector(".text");
+const button = document.querySelector("#knap");
+const dialog = document.querySelector("#dialog");
+const okBtn = document.querySelector("#ok_knap");
+
+// Event listeners
+button.addEventListener("click", changeWords);
+okBtn.addEventListener("click", () => dialog.close());
+
+// Funktionen der ændrer ordene
+function changeWords() {
+  if (hadTheButtonEverBeenClickedFlag === true) {
+    // Hvis knappen allerede er klikket, vis dialog
+    dialog.showModal();
   } else {
-    let locale = "da";
-    texts[locale].texts.forEach((elm) => {
-      document.querySelector(elm.location).textContent = elm.text;
+    // Første klik: erstat dårlige ord med gode
+    let currentText = textElm.textContent;
+
+    curseWords.forEach((word) => {
+      currentText = currentText.replaceAll(word.bad, word.good);
     });
+
+    textElm.textContent = currentText;
+
+    // Sæt flag til true, så næste klik kun viser dialog
+    hadTheButtonEverBeenClickedFlag = true;
   }
 }
