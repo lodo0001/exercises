@@ -1,0 +1,63 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+  margin: 0;
+  height: 10vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+main {
+  padding: 20px 100px;
+  height: 60vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+footer {
+  margin: 0;
+  padding: 20px 100px;
+  height: 15vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+/* Css til hawaii mode */
+[data-theme="hawaii"] {
+  --header-bg-col: rgb(162, 199, 82);
+  --main-bg-col: rgb(194, 53, 53);
+  --footer-bg-col: rgb(222, 222, 103);
+}
+
+/* Css til dark mode */
+[data-theme="dark"] {
+  --header-bg-col: rgb(204, 204, 204);
+  --main-bg-col: rgb(137, 137, 137);
+  --footer-bg-col: rgb(0, 0, 0);
+}
+
+/* Css til light mode */
+[data-theme="light"] {
+  --header-bg-col: rgb(159, 159, 159);
+  --main-bg-col: rgb(149, 121, 158);
+  --footer-bg-col: rgb(255, 255, 255);
+}
+
+header {
+  background-color: var(--header-bg-col);
+}
+
+main {
+  background-color: var(--main-bg-col);
+}
+
+footer {
+  background-color: var(--footer-bg-col);
+}
