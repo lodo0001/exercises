@@ -1,0 +1,9 @@
+:root {
+  --brightness: 50%;
+}
+
+body {
+  background-color: hsl(555, 80%, var(--brightness));
+  display: flex;
+  transition: background-color 0.1s;
+}
